@@ -1,0 +1,6 @@
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.navbar-menu a {
+  transition: color 0.3s;
+}
