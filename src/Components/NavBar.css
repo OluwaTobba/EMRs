@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.transition-transform {
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-menu a {
+    font-size: 40px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.navbar-menu a:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+}

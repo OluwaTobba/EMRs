@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <NavBar />
-      {/* <Header />
-      <About /> */}
+      <Header />
+      <About />
     </>
   );
 }
