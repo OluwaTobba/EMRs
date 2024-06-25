@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { HiMenuAlt3 } from "react-icons/hi";
+import { HiX } from "react-icons/hi";
 import './NavBar.css';
 
 function NavBar() {
@@ -20,7 +21,7 @@ function NavBar() {
                     </div>
                     <div className="md:hidden">
                         <button onClick={() => setNavOpen(!navOpen)}>
-                            {navOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+                            {navOpen ? <HiX className="h-6 w-6" /> : <HiMenuAlt3 className="h-6 w-6" />}
                         </button>
                     </div>
                 </div>
@@ -38,4 +39,4 @@ function NavBar() {
     );
 }
 
-export default NavBar
+export default NavBar;
