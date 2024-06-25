@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header className="bg-blue-600 text-white py-20" id="home">
-      <div className="container mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
           ELECTRONIC MEDICAL RECORDS SECURITY
         </h1>
