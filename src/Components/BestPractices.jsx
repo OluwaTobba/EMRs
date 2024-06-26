@@ -24,7 +24,7 @@ function BestPractices() {
                     <p className="text-lg sm:text-xl lg:text-2xl mb-12 text-gray-700 leading-relaxed">
                         Follow these best practices to ensure the security of your EMR systems.
                     </p>
-                    <ul className=" list-disc text-lecenterft mx-auto mt-8 max-w-prose space-y-4">
+                    <ul className=" list-disc text-center centerft mx-auto mt-8 max-w-prose space-y-4">
                         <li>Regularly update software and systems.</li>
                         <li>Implement strong password policies.</li>
                         <li>Use multi-factor authentication.</li>
