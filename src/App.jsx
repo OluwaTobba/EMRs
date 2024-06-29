@@ -8,9 +8,11 @@ import Features from './Components/Features';
 import BestPractices from './Components/BestPractices';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
-import Login from './Components/Login';
-import Register from './Components/Register';
-import Training from './Components/Training';
+import Login from './Components/Training/Login';
+import ForgotPassword from './Components/Training/ForgotPassword';
+import Register from './Components/Training/Register';
+import Dashboard from './Components/Training/Dashboard';
+import AdminPanel from './Components/Training/Admin/AdminPanel';
 
 function App() {
 
@@ -24,12 +26,14 @@ function App() {
             <About />
             <Features />
             <BestPractices />
-            <Contact/>
+            <Contact />
           </>
         } />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/training" element={<Training />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
       <Footer />
     </Router>
