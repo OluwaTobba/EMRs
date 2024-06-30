@@ -67,12 +67,13 @@ function AdminLogin() {
                         className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
                         />
                     </div>
-                    <p className="mt-4 text-right">
+                    <p className="mt-4 flex justify-between">
+                        <Link to="/login" className="text-blue-600 hover:underline">Training</Link>
                         <Link to="/forgot-password" className="text-blue-600 hover:underline">Forgot Password?</Link>
                     </p>
                     <button
                         type="submit"
-                        className="mt-2 w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition duration-300"
+                        className="mt-3 w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition duration-300"
                     >
                         Login
                     </button>
