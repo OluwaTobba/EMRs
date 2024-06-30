@@ -1,43 +1,71 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import './index.css';
-import NavBar from './Components/NavBar'
-import Header from './Components/Header'
-import About from './Components/About'
+import NavBar from './Components/NavBar';
+import Header from './Components/Header';
+import About from './Components/About';
 import Features from './Components/Features';
 import BestPractices from './Components/BestPractices';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
+import TrainingNavbar from './Components/Training/TrainingNavbar';
 import Login from './Components/Training/Login';
 import ForgotPassword from './Components/Training/ForgotPassword';
 import Register from './Components/Training/Register';
 import Dashboard from './Components/Training/Dashboard';
 import AdminPanel from './Components/Training/Admin/AdminPanel';
+import AdminLogin from './Components/Training/Admin/AdminLogin';
+import AdminLogout from './Components/Training/Admin/AdminLogout';
+import AdminNavbar from './Components/Training/Admin/AdminNavbar';
+import Logout from './Components/Training/Logout';
+import ProtectedRoute from './Components/Training/ProtectedRoute';
+import AdminProtectedRoute from './Components/Training/Admin/AdminProtectedRoute';
+import { AuthProvider } from './Context/AuthContext';
 
 function App() {
-
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Header />
-            <About />
-            <Features />
-            <BestPractices />
-            <Contact />
-          </>
-        } />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admin" element={<AdminPanel />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Main />
+      </Router>
+    </AuthProvider>
   );
 }
 
-export default App
+function Main() {
+  const location = useLocation();
+  const isTrainingPath = location.pathname.startsWith('/training') || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/forgot-password' || location.pathname === '/dashboard' || location.pathname === '/admin' || location.pathname === '/logout';
+  const isAdminPath = location.pathname.startsWith('/admin') || location.pathname === '/admin-login' || location.pathname === '/admin-logout';
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      {!isTrainingPath && !isAdminPath && <NavBar />}
+      {isTrainingPath && !isAdminPath && <TrainingNavbar />}
+      {isAdminPath && <AdminNavbar /> }
+      <div className="flex-grow">
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Header />
+              <About />
+              <Features />
+              <BestPractices />
+              <Contact />
+            </>
+          } />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/training" element={<ProtectedRoute element={<Dashboard />} />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-logout" element={<AdminLogout />} />
+          <Route path="/admin" element={<AdminProtectedRoute element={<AdminPanel />} />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;

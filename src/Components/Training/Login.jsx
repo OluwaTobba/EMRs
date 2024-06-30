@@ -16,7 +16,7 @@ function Login() {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/dashboard');
+            navigate('/training');
         } catch (error) {
             let message;
             switch (error.code) {
