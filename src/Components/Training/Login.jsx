@@ -29,6 +29,9 @@ function Login() {
                 case 'auth/invalid-email':
                 message = 'Invalid email format.';
                 break;
+                case 'auth/invalid-credential':
+                message = 'Invalid Login Credentials.';
+                break;
                 default:
                 message = 'Invalid Login Credentials. Please try again.';
             }
@@ -43,7 +46,7 @@ function Login() {
 
             <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
 
-                <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center text-blue-500">Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
@@ -69,18 +72,16 @@ function Login() {
                     </div>
                     <p className="mt-4 flex justify-between">
                         <Link to="/admin-login" className="text-blue-600 hover:underline">Admin Login</Link>
+                        <Link to="/" className="text-blue-600 hover:underline">Go to Home</Link>    
                         <Link to="/forgot-password" className="text-blue-600 hover:underline">Forgot Password?</Link>
                     </p>
                     <button
                         type="submit"
-                        className="mt-3 w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition duration-300"
+                        className="mt-4 w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition duration-300"
                     >
                         Login
                     </button>
                 </form>
-                {/* <p className="mt-4 text-center">
-                    <Link to="/forgot-password" className="text-blue-600 hover:underline">Forgot Password?</Link>
-                </p> */}
                 <p className="mt-4 text-center">
                     Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
                 </p>

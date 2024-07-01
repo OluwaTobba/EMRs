@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaBook, FaChalkboardTeacher, FaUserShield, FaVideo } from 'react-icons/fa';
+import { FaShieldAlt, FaUserSecret, FaLock, FaKey, FaFileAlt, FaEnvelope } from 'react-icons/fa';
 
 function Dashboard() {
   return (
@@ -13,28 +13,34 @@ function Dashboard() {
           <p className="text-lg text-gray-700 mb-6">Here you can find various training materials and resources to help you secure your electronic medical records effectively.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link to="/data-breaches" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
-              <FaBook className="text-2xl" />
+
+            <Link to="/training/data-breaches" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
+              <FaShieldAlt className="text-2xl" />
               <span>Data Breaches</span>
             </Link>
-            <Link to="/threats" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
-              <FaChalkboardTeacher className="text-2xl" />
+
+            <Link to="/training/insider-threats" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
+              <FaUserSecret className="text-2xl" />
               <span>Insider Threats</span>
             </Link>
-            <Link to="/ransomware" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
-              <FaUserShield className="text-2xl" />
+
+            <Link to="/training/ransomware" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
+              <FaLock className="text-2xl" />
               <span>Ransomware</span>
             </Link>
-            <Link to="/weak-password" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
-              <FaVideo className="text-2xl" />
+            
+            <Link to="/training/weak-passwords" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
+              <FaKey className="text-2xl" />
               <span>Weak Passwords</span>
             </Link>
-            <Link to="/theft" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
-              <FaVideo className="text-2xl" />
+            
+            <Link to="/training/physical-theft" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
+              <FaFileAlt className="text-2xl" />
               <span>Physical Theft</span>
             </Link>
-            <Link to="/phishing" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
-              <FaVideo className="text-2xl" />
+            
+            <Link to="/training/phishing-attacks" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
+              <FaEnvelope className="text-2xl" />
               <span>Phishing Attacks</span>
             </Link>
 

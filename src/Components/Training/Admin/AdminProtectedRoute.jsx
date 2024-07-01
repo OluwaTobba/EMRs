@@ -3,13 +3,14 @@ import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthContext';
 
 function AdminProtectedRoute({ element }) {
+
     const { user } = useContext(AuthContext);
 
-    if (!user) {
-        return <Navigate to="/admin-login" replace />;
+    if (user && user.email === 'admin@emrs.com') {
+        return element;
     }
 
-    return element;
+    return <Navigate to="/admin-login" />;
 }
 
 export default AdminProtectedRoute;

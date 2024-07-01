@@ -17,9 +17,15 @@ import AdminPanel from './Components/Training/Admin/AdminPanel';
 import AdminLogin from './Components/Training/Admin/AdminLogin';
 import AdminLogout from './Components/Training/Admin/AdminLogout';
 import AdminNavbar from './Components/Training/Admin/AdminNavbar';
-import Logout from './Components/Training/Logout';
-import ProtectedRoute from './Components/Training/ProtectedRoute';
 import AdminProtectedRoute from './Components/Training/Admin/AdminProtectedRoute';
+import Logout from './Components/Training/Logout';
+import DataBreaches from './Components/Training/Sections/DataBreaches';
+import InsiderThreats from './Components/Training/Sections/InsiderThreats';
+import Ransomware from './Components/Training/Sections/Ransomware';
+import WeakPasswords from './Components/Training/Sections/WeakPasswords';
+import PhysicalTheft from './Components/Training/Sections/PhysicalTheft';
+import PhishingAttacks from './Components/Training/Sections/PhishingAttacks';
+import ProtectedRoute from './Components/Training/ProtectedRoute';
 import { AuthProvider } from './Context/AuthContext';
 
 function App() {
@@ -35,13 +41,13 @@ function App() {
 function Main() {
   const location = useLocation();
   const isTrainingPath = location.pathname.startsWith('/training') || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/forgot-password' || location.pathname === '/dashboard' || location.pathname === '/admin' || location.pathname === '/logout';
-  const isAdminPath = location.pathname.startsWith('/admin') || location.pathname === '/admin-login' || location.pathname === '/admin-logout';
+  const isAdminPath = location.pathname.startsWith('/admin') || location.pathname === '/admin-login';
 
   return (
     <div className="flex flex-col min-h-screen">
       {!isTrainingPath && !isAdminPath && <NavBar />}
       {isTrainingPath && !isAdminPath && <TrainingNavbar />}
-      {isAdminPath && <AdminNavbar /> }
+      {isAdminPath && <AdminNavbar />}
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={
@@ -61,6 +67,12 @@ function Main() {
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-logout" element={<AdminLogout />} />
           <Route path="/admin" element={<AdminProtectedRoute element={<AdminPanel />} />} />
+          <Route path="/training/data-breaches" element={<ProtectedRoute element={<DataBreaches />} />} />
+          <Route path="/training/insider-threats" element={<ProtectedRoute element={<InsiderThreats />} />} />
+          <Route path="/training/ransomware" element={<ProtectedRoute element={<Ransomware />} />} />
+          <Route path="/training/weak-passwords" element={<ProtectedRoute element={<WeakPasswords />} />} />
+          <Route path="/training/physical-theft" element={<ProtectedRoute element={<PhysicalTheft />} />} />
+          <Route path="/training/phishing-attacks" element={<ProtectedRoute element={<PhishingAttacks />} />} />
         </Routes>
       </div>
       <Footer />

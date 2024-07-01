@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { HiMenuAlt3 } from "react-icons/hi";
 import { HiX } from "react-icons/hi";
 
-function AdminNavbar() {
+function LoginNavbar() {
 
     const [navOpen, setNavOpen] = useState(false);
 
@@ -55,4 +55,4 @@ function AdminNavbar() {
     
 }
 
-export default AdminNavbar;
+export default LoginNavbar;

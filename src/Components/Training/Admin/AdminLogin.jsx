@@ -13,10 +13,17 @@ function AdminLogin() {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
+
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/admin');
+
+            if (email === 'admin@emrs.com') {
+                navigate('/admin');
+            } else {
+                throw new Error('Unauthorized access');
+            }
         } catch (error) {
             let message;
             switch (error.code) {
@@ -29,12 +36,16 @@ function AdminLogin() {
                 case 'auth/invalid-email':
                 message = 'Invalid email format.';
                 break;
+                case 'auth/invalid-credential':
+                message = 'Invalid Login Credentials.';
+                break;
                 default:
-                message = 'Invalid Login Credentials. Please try again.';
+                message = error.message || 'Invalid Login Credentials. Please try again.';
             }
             setModalMessage(message);
             setModalOpen(true);
         }
+
     };
 
     return (
@@ -43,7 +54,8 @@ function AdminLogin() {
 
             <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
 
-                <h2 className="text-2xl font-bold mb-6 text-center">Admin Login</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Admin Login</h2>
+                
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">Username</label>
@@ -67,13 +79,12 @@ function AdminLogin() {
                         className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
                         />
                     </div>
-                    <p className="mt-4 flex justify-between">
+                    <p className="mt-4 text-right">
                         <Link to="/login" className="text-blue-600 hover:underline">Training</Link>
-                        <Link to="/forgot-password" className="text-blue-600 hover:underline">Forgot Password?</Link>
                     </p>
                     <button
                         type="submit"
-                        className="mt-3 w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition duration-300"
+                        className="mt-4 w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition duration-300"
                     >
                         Login
                     </button>
