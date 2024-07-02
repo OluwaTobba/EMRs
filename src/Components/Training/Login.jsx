@@ -72,7 +72,6 @@ function Login() {
                     </div>
                     <p className="mt-4 flex justify-between">
                         <Link to="/admin-login" className="text-blue-600 hover:underline">Admin Login</Link>
-                        <Link to="/" className="text-blue-600 hover:underline">Go to Home</Link>    
                         <Link to="/forgot-password" className="text-blue-600 hover:underline">Forgot Password?</Link>
                     </p>
                     <button
@@ -84,6 +83,10 @@ function Login() {
                 </form>
                 <p className="mt-4 text-center">
                     Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
+                </p>
+                
+                <p className="mt-2 text-center">
+                    <Link to="/" className="text-blue-600 hover:underline">Go to Home</Link>
                 </p>
 
             </div>

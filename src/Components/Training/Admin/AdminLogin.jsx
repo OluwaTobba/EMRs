@@ -79,7 +79,7 @@ function AdminLogin() {
                         className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
                         />
                     </div>
-                    <p className="mt-4 text-right">
+                    <p className="mt-4 text-left">
                         <Link to="/login" className="text-blue-600 hover:underline">Training</Link>
                     </p>
                     <button

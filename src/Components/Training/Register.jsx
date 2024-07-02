@@ -40,9 +40,13 @@ function Register() {
     return (
 
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
+
             <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+
                 <h2 className="text-2xl font-bold mb-6 text-center text-blue-500">Register</h2>
+
                 <form onSubmit={handleRegister}>
+                    
                     <div className="mb-4">
                         <label className="block text-gray-700">Name</label>
                         <input
@@ -75,14 +79,17 @@ function Register() {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+                        className="mt-2 w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
                     >
                         Register
                     </button>
+
                 </form>
+
                 <p className="mt-4 text-center">
                 Already have an account? <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
                 </p>
+
             </div>
 
             <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} message={modalMessage} />
