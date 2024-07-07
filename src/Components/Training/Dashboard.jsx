@@ -44,6 +44,11 @@ function Dashboard() {
               <span>Phishing Attacks</span>
             </Link>
 
+            <Link to="/training/feedback" className="block bg-blue-500 text-white py-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 flex items-center justify-center space-x-3">
+              <FaEnvelope className="text-2xl" />
+              <span>Provide Feedback</span>
+            </Link>
+
           </div>
 
         </div>

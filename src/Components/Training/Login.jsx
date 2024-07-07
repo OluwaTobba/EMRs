@@ -47,6 +47,7 @@ function Login() {
             <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
 
                 <h2 className="text-2xl font-bold mb-6 text-center text-blue-500">Login</h2>
+                
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
