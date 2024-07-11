@@ -176,7 +176,7 @@ function PreTestQuiz() {
     };
 
     const handleProceed = () => {
-        navigate('/training');
+        navigate('/register');
     };
 
     return (
