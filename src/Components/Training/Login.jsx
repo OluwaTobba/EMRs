@@ -83,7 +83,7 @@ function Login() {
                     </button>
                 </form>
                 <p className="mt-4 text-center">
-                    Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
+                    Don't have an account? <Link to="/quiz" className="text-blue-600 hover:underline">Register</Link>
                 </p>
                 
                 <p className="mt-2 text-center">

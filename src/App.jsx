@@ -64,7 +64,7 @@ function Main() {
           } />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/register" element={<RegisterProtectedRoute element={<Register />} />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/quiz" element={<PreTestQuiz />} />
           <Route path="/training" element={<ProtectedRoute element={<Dashboard />} />} />

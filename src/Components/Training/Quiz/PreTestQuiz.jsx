@@ -140,7 +140,7 @@ function PreTestQuiz() {
 
             const timer = setTimeout(() => {
                 setShowErrorModal(false);
-            }, 3000);
+            }, 2000);
 
             return () => clearTimeout(timer);
 
