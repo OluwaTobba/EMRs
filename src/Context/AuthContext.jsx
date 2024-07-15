@@ -5,10 +5,16 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [isVerified, setIsVerified] = useState(false);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             setUser(user);
+            if (user) {
+                setIsVerified(user.emailVerified);
+            } else {
+                setIsVerified(false);
+            }
         });
         return unsubscribe;
     }, []);
@@ -26,7 +32,7 @@ const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout }}>
+        <AuthContext.Provider value={{ user, isVerified, login, register, logout }}>
             {children}
         </AuthContext.Provider>
     );

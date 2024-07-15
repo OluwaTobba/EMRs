@@ -56,7 +56,7 @@ function ForgotPassword() {
           </button>
         </form>
         <p className="mt-4 text-center">
-          Remember your password? <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
+          Password Reset Done? <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
         </p>
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} message={modalMessage} />

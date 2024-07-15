@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Modal from './RegModal';
 
 function Register() {
+    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,10 +14,12 @@ function Register() {
     const navigate = useNavigate();
 
     const handleRegister = async (e) => {
+
         e.preventDefault();
+        
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            navigate('/login');
+            navigate('/verify');
         } catch (error) {
             let message;
             switch (error.code) {
@@ -35,6 +38,7 @@ function Register() {
             setModalMessage(message);
             setModalOpen(true);
         }
+        
     };
 
     return (

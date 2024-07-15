@@ -13,6 +13,7 @@ import Login from './Components/Training/Login';
 import ForgotPassword from './Components/Training/ForgotPassword';
 import Register from './Components/Training/Register';
 import PreTestQuiz from './Components/Training/Quiz/PreTestQuiz';
+import EmailVerification from './Components/Training/EmailVerification';
 import Feedback from './Components/Training/Feedback';
 import Dashboard from './Components/Training/Dashboard';
 import AdminPanel from './Components/Training/Admin/AdminPanel';
@@ -43,7 +44,7 @@ function App() {
 
 function Main() {
   const location = useLocation();
-  const isTrainingPath = location.pathname.startsWith('/training') || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/forgot-password' || location.pathname === '/dashboard' || location.pathname === '/quiz' || location.pathname === '/logout';
+  const isTrainingPath = location.pathname.startsWith('/training') || location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/forgot-password' || location.pathname === '/dashboard' || location.pathname === '/quiz' || location.pathname === '/verify' || location.pathname === '/logout';
   const isAdminPath = location.pathname.startsWith('/admin') || location.pathname === '/admin-login' || location.pathname === '/logout';
 
   return (
@@ -65,9 +66,11 @@ function Main() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify" element={<EmailVerification />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/quiz" element={<PreTestQuiz />} />
-          <Route path="/training" element={<ProtectedRoute element={<Dashboard />} />} />
+          <Route path="/training" element={<Dashboard />} />
+          {/* <Route path="/training" element={<ProtectedRoute element={<Dashboard />} />} /> */}
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-logout" element={<AdminLogout />} />
           <Route path="/admin" element={<AdminProtectedRoute element={<AdminPanel />} />} />

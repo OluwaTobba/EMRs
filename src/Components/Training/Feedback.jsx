@@ -64,7 +64,6 @@ function Feedback() {
                 <form onSubmit={handleSubmit}>
 
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-700">Feedback</label>
 
                         <textarea
                             rows="5"

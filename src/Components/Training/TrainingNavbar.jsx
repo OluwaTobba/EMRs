@@ -33,7 +33,7 @@ function TrainingNavBar() {
                     </div>
                 </div>
                 <div className={`md:hidden flex flex-col space-y-6 transition-all duration-300 ${navOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                    <Link to="/feedback" className="hover:text-yellow-300 mt-6 transition duration-300">Feedback</Link>
+                    <Link to="/training/feedback" className="hover:text-yellow-300 mt-6 transition duration-300">Feedback</Link>
                     {/* <Link to="/threats" className="hover:text-yellow-300 transition duration-300">Insider Threats</Link>
                     <Link to="/ransomware" className="hover:text-yellow-300 transition duration-300">Ransomware</Link>
                     <Link to="/weak-password" className="hover:text-yellow-300 transition duration-300">Weak Passwords</Link>

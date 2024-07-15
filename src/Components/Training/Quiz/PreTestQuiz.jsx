@@ -23,7 +23,7 @@ const quizQuestions = [
     // Question 4
     {
         question: "What is the purpose of encrypting EMR data?",
-        options: ["To speed up data transmission", "To reduce data storage costs", "To protect data from unauthorized access", "STo enhance data sharing capabilities"],
+        options: ["To speed up data transmission", "To reduce data storage costs", "To protect data from unauthorized access", "To enhance data sharing capabilities"],
         answer: "To protect data from unauthorized access",
     },
     // Question 5
