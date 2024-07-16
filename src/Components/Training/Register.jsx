@@ -26,14 +26,17 @@ function Register() {
             let message;
             switch (error.code) {
                 case 'auth/email-already-in-use':
-                message = 'This email is already registered. Please use a different email or log in.';
+                    message = 'This email is already registered. Please use a different email or log in.';
                 break;
                 case 'auth/invalid-email':
-                message = 'Invalid email format.';
+                    message = 'Invalid email format.';
                 break;
                 case 'auth/weak-password':
-                message = 'Password should be at least 6 characters.';
+                    message = 'Password should be at least 6 characters.';
                 break;
+                case 'auth/network-request-failed':
+                    message = 'Connect to a network!';
+                    break;
                 default:
                 message = 'An error occurred. Please try again.';
             }

@@ -23,19 +23,22 @@ function Login() {
             let message;
             switch (error.code) {
                 case 'auth/user-not-found':
-                message = 'No user found with this email.';
+                    message = 'No user found with this email.';
                 break;
                 case 'auth/wrong-password':
-                message = 'Invalid password. Please try again.';
+                    message = 'Invalid password. Please try again.';
                 break;
                 case 'auth/invalid-email':
-                message = 'Invalid email format.';
+                    message = 'Invalid email format.';
                 break;
                 case 'auth/invalid-credential':
-                message = 'Invalid Login Credentials.';
+                    message = 'Invalid Login Credentials.';
+                break;
+                case 'auth/network-request-failed':
+                    message = 'Connect to a network!';
                 break;
                 default:
-                message = 'Invalid Login Credentials. Please try again.';
+                    message = 'Invalid Login Credentials. Please try again.';
             }
             setModalMessage(message);
             setModalOpen(true);
