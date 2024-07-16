@@ -17,7 +17,7 @@ function EmailVerification() {
         if (user) {
             await reload(user);
             if (user.emailVerified) {
-            navigate('/training');
+            navigate('/login');
             }
         }
         };
@@ -28,7 +28,7 @@ function EmailVerification() {
         if (user) {
         await reload(user);
         if (user.emailVerified) {
-            navigate('/training');
+            navigate('/quiz');
         } else {
             setModalMessage('Email not verified yet. Please check your email.');
             setModalOpen(true);

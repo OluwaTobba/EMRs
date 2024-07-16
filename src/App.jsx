@@ -65,12 +65,13 @@ function Main() {
           } />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/register" element={<Register />} />
+          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="/register" element={<RegisterProtectedRoute element={<Register />} />} />
           <Route path="/verify" element={<EmailVerification />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/quiz" element={<PreTestQuiz />} />
-          <Route path="/training" element={<Dashboard />} />
-          {/* <Route path="/training" element={<ProtectedRoute element={<Dashboard />} />} /> */}
+          {/* <Route path="/training" element={<Dashboard />} /> */}
+          <Route path="/training" element={<ProtectedRoute element={<Dashboard />} />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-logout" element={<AdminLogout />} />
           <Route path="/admin" element={<AdminProtectedRoute element={<AdminPanel />} />} />

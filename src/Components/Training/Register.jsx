@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Modal from './RegModal';
+import { BiShow, BiHide } from "react-icons/bi";
 
 function Register() {
     
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
     const navigate = useNavigate();
@@ -61,6 +63,7 @@ function Register() {
                         onChange={(e) => setName(e.target.value)}
                         />
                     </div>
+
                     <div className="mb-4">
                         <label className="block text-gray-700">Email</label>
                         <input
@@ -71,16 +74,28 @@ function Register() {
                         onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
+                    
                     <div className="mb-4">
                         <label className="block text-gray-700">Password</label>
-                        <input
-                        type="password"
-                        className="w-full p-3 border border-gray-300 rounded-lg"
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        />
+
+                        <div className="relative">
+                            <input
+                            type={passwordVisible ? "text" : "password"}
+                            className="w-full p-3 border border-gray-300 rounded-lg"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <button
+                                type='button'
+                                onClick={() => setPasswordVisible(!passwordVisible)}
+                                className='absolute inset-y-0 right-0 pr-3 text-blue-700'
+                            >
+                                {passwordVisible? <BiHide /> : <BiShow />}
+                            </button>
+                        </div>
                     </div>
+                    
                     <button
                         type="submit"
                         className="mt-2 w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"

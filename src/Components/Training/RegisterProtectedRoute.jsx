@@ -5,9 +5,9 @@ import { AuthContext } from '../../Context/AuthContext';
 function RegisterProtectedRoute({ element }) {
     const { user, isVerified } = useContext(AuthContext);
 
-    if (!user) {
-        return <Navigate to="/quiz" replace />;
-    }
+    // if (!user) {
+    //     return <Navigate to="/quiz" replace />;
+    // }
 
     if (user && !isVerified) {
         return <Navigate to="/verify" replace />;
