@@ -39,7 +39,7 @@ function EmailVerification() {
     const handleResendVerificationEmail = async () => {
         try {
         await sendEmailVerification(auth.currentUser);
-        setModalMessage('Verification email sent successfully!');
+        setModalMessage('Verification email sent successfully! Please check your email and click on the link to verify your account.');
         setModalOpen(true);
         } catch (error) {
         console.error('Error sending verification email:', error);
@@ -55,7 +55,7 @@ function EmailVerification() {
                 
                 <h3 className="text-2xl font-bold mb-5 text-center text-blue-700">Email Verification</h3>
 
-                <p className="mb-4 text-center">A verification link will be sent to your email. Please check your email and click on the link to verify your account.</p>
+                <p className="mb-4 text-center">A verification link will be sent to your email.</p>
                 
                 <button
                 onClick={handleResendVerificationEmail}

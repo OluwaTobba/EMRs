@@ -20,6 +20,7 @@ import AdminPanel from './Components/Training/Admin/AdminPanel';
 import AdminLogin from './Components/Training/Admin/AdminLogin';
 import AdminLogout from './Components/Training/Admin/AdminLogout';
 import AdminNavbar from './Components/Training/Admin/AdminNavbar';
+import AdminUpdateDelete from './Components/Training/Admin/AdminUpdateDelete';
 import AdminProtectedRoute from './Components/Training/Admin/AdminProtectedRoute';
 import Logout from './Components/Training/Logout';
 import DataBreaches from './Components/Training/Sections/DataBreaches';
@@ -75,7 +76,15 @@ function Main() {
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-logout" element={<AdminLogout />} />
           <Route path="/admin" element={<AdminProtectedRoute element={<AdminPanel />} />} />
+          {/* <Route path="/admin/manage-content" element={<AdminUpdateDelete />} /> */}
+          {/* <Route path="/admin/manage-content" element={<AdminProtectedRoute element={<AdminUpdateDelete />} />} /> */}
           <Route path="/training/feedback" element={<ProtectedRoute element={<Feedback />} />} />
+          {/* <Route path="/training/data-breaches" element={<DataBreaches />} />
+          <Route path="/training/insider-threats" element={<InsiderThreats />} />
+          <Route path="/training/ransomware" element={<Ransomware />} />
+          <Route path="/training/weak-passwords" element={<WeakPasswords />} />
+          <Route path="/training/physical-theft" element={<PhysicalTheft />} />
+          <Route path="/training/phishing-attacks" element={<PhishingAttacks />} /> */}
           <Route path="/training/data-breaches" element={<ProtectedRoute element={<DataBreaches />} />} />
           <Route path="/training/insider-threats" element={<ProtectedRoute element={<InsiderThreats />} />} />
           <Route path="/training/ransomware" element={<ProtectedRoute element={<Ransomware />} />} />

@@ -24,7 +24,7 @@ function AdminLogin() {
             if (email === 'admin@emrs.com') {
                 navigate('/admin');
             } else {
-                throw new Error('Unauthorized access');
+                throw new Error('Unauthorized Access!');
             }
         } catch (error) {
             let message;
@@ -43,6 +43,9 @@ function AdminLogin() {
                 break;
                 case 'auth/network-request-failed':
                     message = 'Connect to a network!';
+                break;
+                case 'auth/too-many-requests':
+                    message = 'Too many login attempts. Please try again later.';
                 break;
                 default:
                     message = error.message || 'Invalid Login Credentials. Please try again.';
