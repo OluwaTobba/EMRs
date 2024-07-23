@@ -23,7 +23,7 @@ function NavBar() {
                         <Link to="/#contact" className="hover:text-yellow-300 transition duration-300">CONTACT US</Link>
                     </div>
                     <div className="hidden md:flex font-bold">
-                        <Link to="/training" className="bg-blue-400 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">TRAINING</Link>
+                        <Link to="/training" className="bg-blue-400 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105" target='_blank'>TRAINING</Link>
                     </div>
                     <div className="md:hidden">
                         <button onClick={() => setNavOpen(!navOpen)}>
