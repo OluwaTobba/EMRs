@@ -79,13 +79,13 @@ function Main() {
           {/* <Route path="/admin/manage-content" element={<AdminUpdateDelete />} /> */}
           {/* <Route path="/admin/manage-content" element={<AdminProtectedRoute element={<AdminUpdateDelete />} />} /> */}
           <Route path="/training/feedback" element={<ProtectedRoute element={<Feedback />} />} />
-          {/* <Route path="/training/data-breaches" element={<DataBreaches />} />
-          <Route path="/training/insider-threats" element={<InsiderThreats />} />
+          <Route path="/training/data-breaches" element={<DataBreaches />} />
+          {/* <Route path="/training/insider-threats" element={<InsiderThreats />} />
           <Route path="/training/ransomware" element={<Ransomware />} />
           <Route path="/training/weak-passwords" element={<WeakPasswords />} />
           <Route path="/training/physical-theft" element={<PhysicalTheft />} />
           <Route path="/training/phishing-attacks" element={<PhishingAttacks />} /> */}
-          <Route path="/training/data-breaches" element={<ProtectedRoute element={<DataBreaches />} />} />
+          {/* <Route path="/training/data-breaches" element={<ProtectedRoute element={<DataBreaches />} />} /> */}
           <Route path="/training/insider-threats" element={<ProtectedRoute element={<InsiderThreats />} />} />
           <Route path="/training/ransomware" element={<ProtectedRoute element={<Ransomware />} />} />
           <Route path="/training/weak-passwords" element={<ProtectedRoute element={<WeakPasswords />} />} />
