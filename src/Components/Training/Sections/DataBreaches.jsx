@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../../../firebase';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 function DataBreaches() {
 
     const [contents, setContents] = useState([]);
 
     useEffect(() => {
+
         const fetchContents = async () => {
-            const querySnapshot = await getDocs(collection(db, 'data-breaches'));
+
+            const q = query(collection(db, 'data-breaches'), orderBy('timestamp', 'asc'));
+            const querySnapshot = await getDocs(q);
             const contentList = querySnapshot.docs.map(doc => doc.data());
             setContents(contentList);
+        
         };
 
         fetchContents();
+
     }, []);
 
     return (

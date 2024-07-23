@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db, storage } from '../../../firebase';
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, Timestamp } from "firebase/firestore"; 
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import Modal from './AdminModal';
 
@@ -13,6 +13,7 @@ function AdminPanel() {
     const [progress, setProgress] = useState(0);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
+    const [isUploading, setIsUploading] = useState(false);
 
     const handleUpload = async () => {
 
@@ -23,6 +24,8 @@ function AdminPanel() {
 
             return;
         }
+
+        setIsUploading(true);
         
         const storageRef = ref(storage, `training/${section}/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -37,6 +40,7 @@ function AdminPanel() {
                 console.error(error);
                 setModalMessage("Error occurred during upload. Please try again.");
                 setModalOpen(true);
+                setIsUploading(false);
             },
             async () => {
                 const fileURL = await getDownloadURL(uploadTask.snapshot.ref);
@@ -44,6 +48,7 @@ function AdminPanel() {
                     title,
                     description,
                     fileURL,
+                    timestamp: Timestamp.now()
                 });
 
                 setTitle('');
@@ -52,6 +57,7 @@ function AdminPanel() {
                 setProgress(0);
                 setModalMessage("File Uploaded Successfully!");
                 setModalOpen(true);
+                setIsUploading(false);
             }
         );
 
@@ -123,8 +129,9 @@ function AdminPanel() {
                         type="button"
                         onClick={handleUpload}
                         className="mt-4 w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600 transition duration-300"
+                        disabled={isUploading}
                     >
-                        Upload
+                        {isUploading ? 'Uploading...' : 'Upload'}
                     </button>
         
                 </form>
