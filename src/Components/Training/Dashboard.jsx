@@ -34,7 +34,7 @@ function Dashboard() {
 
                 <h3 className="text-2xl text-white font-bold mb-4">DATA BREACHES</h3>
 
-                <Link to="/training/data-breaches" className="bg-black text-white py-2 px-4 rounded-lg" target='_blank'>
+                <Link to="/training/data-breaches" className="bg-black text-white py-2 px-4 rounded-lg">
                   Go to Course
                 </Link>
 
