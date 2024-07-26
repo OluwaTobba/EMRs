@@ -1,6 +1,6 @@
 [
     {
-      "origin": ["http://localhost:5173"],
+      "origin": ["http://localhost:5173", "https://emrsystems.netlify.app", "https://emrsystems.vercel.app"],
       "method": ["GET"],
       "responseHeader": ["Content-Type"],
       "maxAgeSeconds": 3600
