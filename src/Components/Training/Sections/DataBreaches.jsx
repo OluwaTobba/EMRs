@@ -3,7 +3,6 @@ import { db } from '../../../firebase';
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
-// import VideoPlayer from './VideoPlayer';
 
 function DataBreaches() {
 
@@ -37,7 +36,7 @@ function DataBreaches() {
             
             <h2 className="text-3xl font-bold my-6 text-center capitalize">DATA BREACHES</h2>
             
-            <div className="w-full max-w-5xl p-4 bg-white rounded shadow-md">
+            <div className="w-full max-w-6xl p-4 bg-white rounded shadow-md">
 
                 {currentContent && (
 
@@ -64,7 +63,7 @@ function DataBreaches() {
                                 <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js`}>
                                     <Viewer fileUrl={currentContent.documentURL} />
                                 </Worker>
-                                <a href={currentContent.documentURL} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-center underline">View Full Document</a>
+                                {/* <a href={currentContent.documentURL} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-center underline">View Full Document</a> */}
                             </div>
                         )}
 
