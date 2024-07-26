@@ -110,7 +110,7 @@ function DBQuiz ({ onComplete }) {
 
     return (
 
-        <div className="p-8 bg-white rounded-lg shadow-md w-full max-w-2xl mx-auto">
+        <div className="p-8 mt-7 bg-white rounded-lg shadow-md w-full max-w-2xl mx-auto">
 
             <h2 className='text-2xl text-center font-bold mb-4'>Quiz</h2>
 

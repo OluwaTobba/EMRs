@@ -50,7 +50,7 @@ function Dashboard() {
 
                 <h3 className="text-2xl text-white font-bold mb-4">INSIDER THREATS</h3>
 
-                <Link to="/training/insider-threats" className="bg-black text-white py-2 px-4 rounded-lg" target='_blank'>
+                <Link to="/training/insider-threats" className="bg-black text-white py-2 px-4 rounded-lg">
                   Go to Course
                 </Link>
 
@@ -66,7 +66,7 @@ function Dashboard() {
 
                 <h3 className="text-2xl text-white font-bold mb-4">RANSOMWARE</h3>
 
-                <Link to="/training/ransomware" className="bg-black text-white py-2 px-4 rounded-lg" target='_blank'>
+                <Link to="/training/ransomware" className="bg-black text-white py-2 px-4 rounded-lg">
                   Go to Course
                 </Link>
 
@@ -82,7 +82,7 @@ function Dashboard() {
 
                 <h3 className="text-2xl text-white font-bold mb-4">WEAK PASSWORDS</h3>
 
-                <Link to="/training/weak-passwords" className="bg-black text-white py-2 px-4 rounded-lg" target='_blank'>
+                <Link to="/training/weak-passwords" className="bg-black text-white py-2 px-4 rounded-lg">
                   Go to Course
                 </Link>
 
@@ -98,7 +98,7 @@ function Dashboard() {
 
                 <h3 className="text-2xl text-white font-bold mb-4">PHYSICAL THEFT</h3>
 
-                <Link to="/training/physical-theft" className="bg-black text-white py-2 px-4 rounded-lg" target='_blank'>
+                <Link to="/training/physical-theft" className="bg-black text-white py-2 px-4 rounded-lg">
                   Go to Course
                 </Link>
 
@@ -114,7 +114,7 @@ function Dashboard() {
 
                 <h3 className="text-2xl text-white font-bold mb-4">PHISHING ATTACKS</h3>
 
-                <Link to="/training/phishing-attacks" className="bg-black text-white py-2 px-4 rounded-lg" target='_blank'>
+                <Link to="/training/phishing-attacks" className="bg-black text-white py-2 px-4 rounded-lg">
                   Go to Course
                 </Link>
 
