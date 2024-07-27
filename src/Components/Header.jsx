@@ -7,7 +7,7 @@ function Header() {
   return (
     
     <header 
-      className="bg-blue-600 text-white py-20" 
+      className="header bg-blue-600 text-white py-20" 
       id="home"
       style={{ backgroundImage: `url(${HeaderImg})` }}
       >

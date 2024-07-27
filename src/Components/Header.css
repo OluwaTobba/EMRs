@@ -4,6 +4,18 @@ header {
     position: relative;
 }
 
+.header {
+    padding: 160px 0 90px 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+@media (max-width: 640px) {
+    .header {
+        padding: 130px 0 60px 0;
+    }
+}
+
 header::before {
     /* content: ''; */
     position: absolute;
@@ -19,4 +31,3 @@ header::before {
     position: relative;
     z-index: 2;
 } */
-  
