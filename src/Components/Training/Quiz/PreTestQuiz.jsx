@@ -132,6 +132,7 @@ function PreTestQuiz() {
     const [showResults, setShowResults] = useState(false);
     const [error, setError] = useState('');
     const [ShowErrorModal, setShowErrorModal] = useState(false);
+    const [userAnswers, setUserAnswers] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -160,9 +161,11 @@ function PreTestQuiz() {
             return;
         }
 
-        if (selectedOption === quizQuestions[currentQuestion].answer) {
+        const isCorrect = selectedOption === quizQuestions[currentQuestion].answer;
+        if (isCorrect) {
             setScore(score + 1);
         }
+        setUserAnswers([...userAnswers, { question: quizQuestions[currentQuestion], selectedOption, isCorrect }]);
 
         setSelectedOption('');
         setError('');
@@ -239,10 +242,14 @@ function PreTestQuiz() {
                         <p className="text-2xl mb-4 text-center">Your score: {score} / {quizQuestions.length}</p>
 
                         <div className="space-y-4">
-                            {quizQuestions.map((question, index) => (
+                            {userAnswers.map((result, index) => (
                                 <div key={index} className="mb-4">
-                                    <h4>{question.question}</h4>
-                                    <p className="font-bold">Correct answer: {question.answer}</p>
+                                    <h4 className="font-bold">{result.question.question}</h4>
+                                    <p>Correct Answer: {result.question.answer}</p>
+                                    <p>Your Answer: {result.selectedOption}</p>
+                                    <p className={result.isCorrect ? 'text-green-500 font-bold' : 'text-red-500 font-bold'}>
+                                        {result.isCorrect ? 'Correct' : 'Incorrect'}
+                                    </p>
                                 </div>
                             ))}
                         </div>

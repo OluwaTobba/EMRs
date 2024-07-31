@@ -2,24 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../../firebase';
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
 import DBQuiz from '../Quiz/DataBreachesQuiz';
 
-function Ransomware() {
+function DataBreaches() {
 
     const [contents, setContents] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quizCompleted, setQuizCompleted] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
 
         const fetchContents = async () => {
-            const q = query(collection(db, 'ransomware'), orderBy('timestamp', 'asc'));
-            const querySnapshot = await getDocs(q);
-            const contentList = querySnapshot.docs.map(doc => doc.data());
-            setContents(contentList);
+
+            try {
+                const q = query(collection(db, 'data-breaches'), orderBy('timestamp', 'asc'));
+                const querySnapshot = await getDocs(q);
+                const contentList = querySnapshot.docs.map(doc => doc.data());
+                setContents(contentList);
+            } catch (err) {
+                setError('Failed to load contents. Please try again.');
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+
         };
 
         fetchContents();
@@ -44,11 +53,27 @@ function Ransomware() {
 
     const currentContent = contents[currentIndex];
 
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-100">
+                <p>Loading... Please Wait...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-100">
+                <p>{error}</p>
+            </div>
+        );
+    }
+
     return (
 
         <div className="min-h-screen flex flex-col items-center bg-gray-100">
         
-            <h2 className="text-4xl font-bold my-6 text-center">RANSOMWARE</h2>
+            <h2 className="text-4xl font-bold my-6 text-center">DATA BREACHES</h2>
         
             <div className="w-full max-w-6xl p-4 bg-white rounded shadow-md">
         
@@ -67,18 +92,6 @@ function Ransomware() {
                                 <source src={currentContent.fileURL} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
-                        )}
-
-                        {currentContent.imageURL && (
-                            <img src={currentContent.imageURL} alt={currentContent.title} className="w-full rounded-lg mb-4" />
-                        )}
-
-                        {currentContent.documentURL && (
-                            <div className="w-full h-96 mb-4">
-                                <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js`}>
-                                    <Viewer fileUrl={currentContent.documentURL} />
-                                </Worker>
-                            </div>
                         )}
 
                     </div>
@@ -141,4 +154,4 @@ function Ransomware() {
 
 }
 
-export default Ransomware;
+export default DataBreaches;

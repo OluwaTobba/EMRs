@@ -8,8 +8,6 @@ function AdminPanel() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [file, setFile] = useState(null);
-    const [document, setDocument] = useState(null);
-    const [imageFile, setImageFile] = useState(null);
     const [section, setSection] = useState('data-breaches');
     const [progress, setProgress] = useState(0);
     const [modalOpen, setModalOpen] = useState(false);
@@ -17,8 +15,14 @@ function AdminPanel() {
     const [isUploading, setIsUploading] = useState(false);
 
     const handleUpload = async () => {
-        if (!file && !document && !imageFile) {
-            setModalMessage('Please fill all entries!');
+        if (!file) {
+            setModalMessage('Please upload a file!');
+            setModalOpen(true);
+            return;
+        }
+
+        if (!file.type.startsWith('video/')) {
+            setModalMessage('Please upload a video file!');
             setModalOpen(true);
             return;
         }
@@ -46,25 +50,19 @@ function AdminPanel() {
 
         try {
             const fileURL = file ? await uploadFile(file, `training/${section}/videos/${file.name}`) : null;
-            const documentURL = document ? await uploadFile(document, `training/${section}/documents/${document.name}`) : null;
-            const imageURL = imageFile ? await uploadFile(imageFile, `training/${section}/images/${imageFile.name}`) : null;
 
             await addDoc(collection(db, section), {
                 title,
                 description,
                 fileURL,
-                documentURL,
-                imageURL,
                 timestamp: Timestamp.now()
             });
 
             setTitle('');
             setDescription('');
             setFile(null);
-            setDocument(null);
-            setImageFile(null);
             setProgress(0);
-            setModalMessage("Files Uploaded Successfully!");
+            setModalMessage("Video Uploaded Successfully!");
         } catch (error) {
             console.error(error);
             setModalMessage("Error occurred during upload. Please try again.");
@@ -85,7 +83,7 @@ function AdminPanel() {
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="w-full p-4 border border-gray-300 rounded mt-1"
+                            className="w-full p-3 border border-gray-300 rounded mt-1"
                             required
                         />
                     </div>
@@ -118,22 +116,7 @@ function AdminPanel() {
                             type="file"
                             onChange={(e) => setFile(e.target.files[0])}
                             className="w-full p-3 border border-gray-300 rounded mt-1"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700">Document</label>
-                        <input
-                            type="file"
-                            onChange={(e) => setDocument(e.target.files[0])}
-                            className="w-full p-3 border border-gray-300 rounded mt-1"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700">Image</label>
-                        <input
-                            type="file"
-                            onChange={(e) => setImageFile(e.target.files[0])}
-                            className="w-full p-3 border border-gray-300 rounded mt-1"
+                            accept="video/*"
                         />
                     </div>
                     {progress > 0 && (
