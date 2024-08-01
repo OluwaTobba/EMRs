@@ -18,7 +18,7 @@ function DataBreaches() {
         const fetchContents = async () => {
 
             try {
-                const q = query(collection(db, 'data-breaches'), orderBy('timestamp', 'asc'));
+                const q = query(collection(db, 'ransomware'), orderBy('timestamp', 'asc'));
                 const querySnapshot = await getDocs(q);
                 const contentList = querySnapshot.docs.map(doc => doc.data());
                 setContents(contentList);
@@ -73,7 +73,7 @@ function DataBreaches() {
 
         <div className="min-h-screen flex flex-col items-center bg-gray-100">
         
-            <h2 className="text-4xl font-bold my-6 text-center">DATA BREACHES</h2>
+            <h2 className="text-4xl font-bold my-6 text-center">RANSOMWARE</h2>
         
             <div className="w-full max-w-6xl p-4 bg-white rounded shadow-md">
         
