@@ -4,7 +4,7 @@ import { db } from '../../../firebase';
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import DBQuiz from '../Quiz/DataBreachesQuiz';
 
-function DataBreaches() {
+function PhishingAttacks() {
 
     const [contents, setContents] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -154,4 +154,4 @@ function DataBreaches() {
 
 }
 
-export default DataBreaches;
+export default PhishingAttacks;

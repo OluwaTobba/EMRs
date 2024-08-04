@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../../firebase';
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import DBQuiz from '../Quiz/DataBreachesQuiz';
+import RQuiz from '../Quiz/RansomwareQuiz';
 
-function DataBreaches() {
+function Ransomware() {
 
     const [contents, setContents] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -98,7 +98,7 @@ function DataBreaches() {
                 )}
 
                 {currentIndex === contents.length && (
-                    <DBQuiz onComplete={handleQuizComplete} />
+                    <RQuiz onComplete={handleQuizComplete} />
                 )}
 
                 <div className="flex justify-between mt-8">
@@ -154,4 +154,4 @@ function DataBreaches() {
 
 }
 
-export default DataBreaches;
+export default Ransomware;
