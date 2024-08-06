@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../../firebase';
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import DBQuiz from '../Quiz/DataBreachesQuiz';
+import PAQuiz from '../Quiz/PhishingAttacksQuiz';
 
 function PhishingAttacks() {
 
@@ -98,7 +98,7 @@ function PhishingAttacks() {
                 )}
 
                 {currentIndex === contents.length && (
-                    <DBQuiz onComplete={handleQuizComplete} />
+                    <PAQuiz onComplete={handleQuizComplete} />
                 )}
 
                 <div className="flex justify-between mt-8">
