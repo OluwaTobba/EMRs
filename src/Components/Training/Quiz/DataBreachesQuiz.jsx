@@ -62,17 +62,12 @@ const quizQuestions = [
         correctAnswer: "To define how access to EMRs is managed and who is authorized to access the data"
     },
     {
-        question: "13. What is the purpose of an incident response policy?",
-        answers: ["What is the purpose of an incident response policy?", "To reduce data storage requirements", "To enhance data processing speed", "To enable unrestricted access to EMRs"],
-        correctAnswer: "What is the purpose of an incident response policy?"
-    },
-    {
-        question: "14. Which Nigerian regulation outlines the requirements for data protection and privacy in the healthcare industry?",
+        question: "13. Which Nigerian regulation outlines the requirements for data protection and privacy in the healthcare industry?",
         answers: ["National Health Act", "Nigeria Data Protection Regulation (NDPR)", "ISO 27001", "HIPAA"],
         correctAnswer: "Nigeria Data Protection Regulation (NDPR)"
     },
     {
-        question: "15.	Why is it important for healthcare organizations to comply with international standards such as ISO 27001 and HIPAA?",
+        question: "14.	Why is it important for healthcare organizations to comply with international standards such as ISO 27001 and HIPAA?",
         answers: ["To reduce data processing costs", "To enhance the security of EMRs and ensure compliance with global best practices", "To facilitate data sharing among global healthcare providers", "To increase the speed of data processing"],
         correctAnswer: "To enhance the security of EMRs and ensure compliance with global best practices"
     },
