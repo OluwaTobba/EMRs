@@ -32,7 +32,6 @@ import PhishingAttacks from './Components/Training/Sections/PhishingAttacks';
 import ProtectedRoute from './Components/Training/ProtectedRoute';
 import RegisterProtectedRoute from './Components/Training/RegisterProtectedRoute';
 import { AuthProvider } from './Context/AuthContext';
-import DBQuiz from './Components/Training/Quiz/DataBreachesQuiz';
 
 function App() {
   return (
@@ -72,7 +71,6 @@ function Main() {
           <Route path="/verify" element={<EmailVerification />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/quiz" element={<PreTestQuiz />} />
-          {/* <Route path="/dbquiz" element={<DBQuiz />} /> */}
           {/* <Route path="/training" element={<Dashboard />} /> */}
           <Route path="/training" element={<ProtectedRoute element={<Dashboard />} />} />
           <Route path="/admin-login" element={<AdminLogin />} />
